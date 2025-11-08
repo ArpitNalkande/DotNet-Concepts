@@ -1,0 +1,9 @@
+D:\DotNet\DbOperationsEFCore\DbOperationsEFCore\obj\Debug\net8.0\DbOperationsEFCore.csproj.AssemblyReference.cache
+D:\DotNet\DbOperationsEFCore\DbOperationsEFCore\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\DotNet\DbOperationsEFCore\DbOperationsEFCore\obj\Debug\net8.0\DbOperationsEFCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet\DbOperationsEFCore\DbOperationsEFCore\obj\Debug\net8.0\DbOperationsEFCore.AssemblyInfoInputs.cache
+D:\DotNet\DbOperationsEFCore\DbOperationsEFCore\obj\Debug\net8.0\DbOperationsEFCore.AssemblyInfo.cs
+D:\DotNet\DbOperationsEFCore\DbOperationsEFCore\obj\Debug\net8.0\DbOperationsEFCore.csproj.CoreCompileInputs.cache
+D:\DotNet\DbOperationsEFCore\DbOperationsEFCore\obj\Debug\net8.0\DbOperationsEFCore.MvcApplicationPartsAssemblyInfo.cs
+D:\DotNet\DbOperationsEFCore\DbOperationsEFCore\obj\Debug\net8.0\DbOperationsEFCore.MvcApplicationPartsAssemblyInfo.cache
+D:\DotNet\DbOperationsEFCore\DbOperationsEFCore\obj\Debug\net8.0\DbOperationsEFCore.sourcelink.json
