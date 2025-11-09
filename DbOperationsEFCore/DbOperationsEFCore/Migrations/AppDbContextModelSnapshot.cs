@@ -57,6 +57,73 @@ namespace DbOperationsEFCore.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("DbOperationsEFCore.Data.BookPrice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CurrencyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("CurrencyId");
+
+                    b.ToTable("BookPrices");
+                });
+
+            modelBuilder.Entity("DbOperationsEFCore.Data.Currency", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("currency")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Currencies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "United States Dollar",
+                            currency = "USD"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Euro",
+                            currency = "EUR"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "British Pound Sterling",
+                            currency = "GBP"
+                        });
+                });
+
             modelBuilder.Entity("DbOperationsEFCore.Data.Language", b =>
                 {
                     b.Property<int>("Id")
@@ -76,6 +143,26 @@ namespace DbOperationsEFCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Hindi",
+                            Title = "USD"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "English",
+                            Title = "EUR"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Telgu",
+                            Title = "GBP"
+                        });
                 });
 
             modelBuilder.Entity("DbOperationsEFCore.Data.Book", b =>
@@ -87,6 +174,25 @@ namespace DbOperationsEFCore.Migrations
                         .IsRequired();
 
                     b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("DbOperationsEFCore.Data.BookPrice", b =>
+                {
+                    b.HasOne("DbOperationsEFCore.Data.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DbOperationsEFCore.Data.Currency", "Currency")
+                        .WithMany()
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Currency");
                 });
 
             modelBuilder.Entity("DbOperationsEFCore.Data.Language", b =>
