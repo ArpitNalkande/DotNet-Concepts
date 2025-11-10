@@ -19,8 +19,8 @@ namespace DbOperationsEFCore.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCurrencies()
         {
-            //var res = await _appDbcontext.Currencies.ToListAsync();
-            var res = await (from c in _appDbcontext.Currencies select c).ToListAsync();
+            var res = await _appDbcontext.Currencies.FindAsync(3);
+            //var res = await (from c in _appDbcontext.Currencies select c).ToListAsync();
             return Ok(res);
 
         }
