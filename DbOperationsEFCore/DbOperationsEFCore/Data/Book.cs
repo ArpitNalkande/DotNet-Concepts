@@ -11,6 +11,6 @@
 
         public int LanguageId { get; set; } // Foreign key property
 
-        public Language Language { get; set; } // Navigation property
+        public Language? Language { get; set; } // Navigation property
     }
 }

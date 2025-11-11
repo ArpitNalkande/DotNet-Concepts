@@ -12,16 +12,16 @@ namespace DbOperationsEFCore.Data
             // Fluent API configurations can be added here if needed
             modelBuilder.Entity<Currency>()
                 .HasData(
-                    new Currency { Id = 1, currency = "USD", Description = "United States Dollar" },
-                    new Currency { Id = 2, currency = "EUR", Description = "Euro" },
-                    new Currency { Id = 3, currency = "GBP", Description = "British Pound Sterling" }
+                    new Currency { Id =1, currency = "USD", Description = "United States Dollar", title = "US Dollar" },
+                    new Currency { Id =2, currency = "EUR", Description = "Euro", title = "Euro" },
+                    new Currency { Id =3, currency = "GBP", Description = "British Pound Sterling", title = "British Pound" }
                 );
 
             modelBuilder.Entity<Language>()
                .HasData(
-                   new Language { Id = 1, Title = "USD", Description = "Hindi" },
-                   new Language { Id = 2, Title = "EUR", Description = "English" },
-                   new Language { Id = 3, Title = "GBP", Description = "Telgu" }
+                   new Language { Id =1, Title = "USD", Description = "Hindi" },
+                   new Language { Id =2, Title = "EUR", Description = "English" },
+                   new Language { Id =3, Title = "GBP", Description = "Telgu" }
                );
         }
 
