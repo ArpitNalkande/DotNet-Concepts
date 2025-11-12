@@ -99,6 +99,10 @@ namespace DbOperationsEFCore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Currencies");
@@ -108,19 +112,22 @@ namespace DbOperationsEFCore.Migrations
                         {
                             Id = 1,
                             Description = "United States Dollar",
-                            currency = "USD"
+                            currency = "USD",
+                            title = "US Dollar"
                         },
                         new
                         {
                             Id = 2,
                             Description = "Euro",
-                            currency = "EUR"
+                            currency = "EUR",
+                            title = "Euro"
                         },
                         new
                         {
                             Id = 3,
                             Description = "British Pound Sterling",
-                            currency = "GBP"
+                            currency = "GBP",
+                            title = "British Pound"
                         });
                 });
 
