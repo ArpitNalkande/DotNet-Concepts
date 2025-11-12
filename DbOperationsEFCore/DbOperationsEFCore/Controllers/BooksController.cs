@@ -55,5 +55,28 @@ namespace DbOperationsEFCore.Controllers
                 );
             return Ok();
         }
+
+        [HttpDelete("{bookId}")]
+        public async Task<IActionResult> DeleteBook([FromRoute] int bookId)
+        {
+            var book = await appDbContext.Books.FirstOrDefaultAsync(x => x.Id == bookId);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            appDbContext.Books.Remove(book);
+            await appDbContext.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpDelete("bulk")]
+        public async Task<IActionResult> DeleteBulk()
+        {
+            var books = await appDbContext.Books.Where(x => x.Id > 6).ExecuteDeleteAsync();     // For better performance
+
+            //appDbContext.Books.RemoveRange(books);                                            // it will hit the Db multiple time 
+            //await appDbContext.SaveChangesAsync();
+            return Ok();
+        }
     }
 }
