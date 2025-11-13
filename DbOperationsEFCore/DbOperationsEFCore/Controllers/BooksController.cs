@@ -10,6 +10,23 @@ namespace DbOperationsEFCore.Controllers
     [ApiController]
     public class BooksController(AppDbContext appDbContext) : ControllerBase
     {
+        [HttpGet("GetBooks")]
+        public async Task<IActionResult> GetBooksAsync()
+        {
+               var books = await appDbContext.Books.Select(x => new       // Anonymous class No name is define
+                                                                          // or class may be ask in interview question 
+                                                                          // concept name is Navigational Properties. 
+            {
+                x.Id,
+                Title = x.Title,
+                description = x.description,
+                noofPages = x.noofPages
+
+            }).ToListAsync();
+            return Ok(books);
+        }
+
+
         [HttpPost("")]
         public async Task<IActionResult> AddnewBook([FromBody] Book model)
         {
